@@ -53,7 +53,7 @@ def scan(num, filters):
         if netblock_check:
             if len(tblock) == 0:
                 target = target.split(".")# this is set by this point
-                for a in range(0, 255):
+                for a in range(0, 256):
                     tblock += [str(target[0])+'.'+str(target[1])+'.'+str(target[2])+'.'+str(a)]
                     if a == 255:
                         netblock_check = False
