@@ -97,6 +97,7 @@ def scan(num, filters):
                             response = requests.get("https://" + target + ":" + str(filters[a][1]) + filters[a][2])
                         else:
                             response = requests.get("http://" + target + ":" + str(filters[a][1]) + filters[a][2])
+                        response.raise_for_status()
                         if filters[a][3] in response.text:
                             # conf string found
                             print("host: " + target + " filter: " + str(filters[a]) + " b64response: " + str(base64.b64encode(bytes(response.text, 'utf-8'))))
